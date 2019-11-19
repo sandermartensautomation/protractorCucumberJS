@@ -1,0 +1,20 @@
+{
+  "name": "cucumberJS",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "webdriver-manager update && protractor protractor.conf.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "cucumber": "^6.0.5",
+    "protractor-multiple-cucumber-html-reporter-plugin": "^1.8.1"
+  },
+  "devDependencies": {
+    "protractor-cucumber-framework": "^6.2.0"
+  }
+}
