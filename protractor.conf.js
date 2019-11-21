@@ -6,7 +6,7 @@ exports.config = {
   capabilities: {
     browserName: 'chrome'
   },
-  specs: ['./tests/features/spec.feature'],
+  specs: ['./tests/features/**/spec.feature'],
   frameworkPath: require.resolve('protractor-cucumber-framework'),
   cucumberOpts: {
     require: ['./tests/specs/*.js'],

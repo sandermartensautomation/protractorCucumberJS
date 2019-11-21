@@ -1,10 +1,12 @@
-var homePage = require('../pages/HomePage');
+const HomePage = require('../pages/HomePage');                          // const homePage = require('../pages/HomePage').prototype;
+const homePage = new HomePage();
 const expect = require('chai').expect;
-var namee;
 const { Given, When, Then } = require('cucumber');
 
+
 Given('you are on the homepage', async function(){
-    await homePage.get();
+    await homePage.open();
+    
 });
 
 When('you enter {string} in the textfield', async function(name){
@@ -12,6 +14,6 @@ When('you enter {string} in the textfield', async function(name){
     await homePage.setName(name);
 });
 
-Then('the correct greeting should appear', async function(){
-    expect(await homePage.getGreetingText()).equal('Hello ' + namee +'!');
+Then('{string} should appear', async function(greeting){
+    expect(await homePage.getGreetingText()).equal(greeting);
 });

@@ -1,19 +1,20 @@
-var HomePage = function () {
+const BasePage = require('./BasePage');
 
-    var nameInput = element(by.model('yourName'));
-    var greeting = element(by.binding('yourName'));
-
-    this.get = async function(){
-        await browser.get('http://www.angularjs.org');
+class HomePage extends BasePage {
+    
+    get elements(){
+        return {
+            nameInput: element(by.model('yourName')),
+            greeting: element(by.binding('yourName'))
+        }
     }
 
-    this.setName = async function (name) {
-        await nameInput.sendKeys(name);
+    async setName (name) {
+        await this.elements.nameInput.sendKeys(name);
     };
 
-    this.getGreetingText = async function () {
-        return await greeting.getText();
+    async getGreetingText () {
+        return await this.elements.greeting.getText();
     };
 
-};
-module.exports = new HomePage();
+} module.exports = HomePage;
